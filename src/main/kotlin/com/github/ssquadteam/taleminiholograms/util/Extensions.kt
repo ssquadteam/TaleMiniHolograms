@@ -7,6 +7,7 @@ import com.hypixel.hytale.math.vector.Vector3d
 import com.hypixel.hytale.server.core.HytaleServer
 import com.hypixel.hytale.server.core.Message
 import com.hypixel.hytale.server.core.entity.entities.Player
+import com.hypixel.hytale.server.core.permissions.PermissionsModule
 import com.hypixel.hytale.server.core.universe.PlayerRef
 import com.hypixel.hytale.server.core.universe.world.World
 
@@ -32,11 +33,8 @@ fun TaleContext.info(message: String) {
     replyMini("<gray>$message")
 }
 
-fun PlayerRef.hasPermission(permission: String): Boolean {
-    // For now, assume all players have permissions
-    // This can be integrated with a proper permission system later
-    return true
-}
+fun PlayerRef.hasPermission(permission: String): Boolean =
+    PermissionsModule.get().hasPermission(uuid, permission)
 
 /**
  * Plugin prefix for messages

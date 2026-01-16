@@ -15,7 +15,7 @@ class TaleMiniHolograms(init: JavaPluginInit) : TalePlugin(init) {
             private set
     }
 
-    val version = "1.0.0"
+    val version = "1.0.1"
 
     lateinit var hologramManager: HologramManager
         private set

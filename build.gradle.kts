@@ -21,7 +21,7 @@ val mavenGroup: String = findProperty("maven_group") as? String ?: "com.github.s
 val hytaleHome = "${System.getProperty("user.home")}/AppData/Roaming/Hytale"
 
 group = mavenGroup
-version = findProperty("version") as? String ?: "1.0.0"
+version = findProperty("version") as? String ?: "1.0.1"
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(javaVersionStr))

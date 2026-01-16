@@ -19,7 +19,6 @@ class DeleteSubCommand(private val plugin: TaleMiniHolograms) : TaleCommand("del
     override fun onExecute(ctx: TaleContext) {
         val playerRef = ctx.playerRef
 
-        // Check permission (if player)
         if (playerRef != null && !playerRef.hasPermission("tmh.delete")) {
             ctx.error("You don't have permission to delete holograms!")
             return
@@ -27,13 +26,11 @@ class DeleteSubCommand(private val plugin: TaleMiniHolograms) : TaleCommand("del
 
         val name = ctx.get(nameArg)
 
-        // Check if hologram exists
         if (plugin.hologramManager.get(name) == null) {
             ctx.error("Hologram '$name' not found!")
             return
         }
 
-        // Delete the hologram
         val success = plugin.hologramManager.delete(name)
 
         if (success) {
