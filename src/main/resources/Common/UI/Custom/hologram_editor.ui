@@ -1,0 +1,163 @@
+$C = "Common.ui";
+
+Group {
+  Anchor: (Width: 560, Height: 480);
+  Background: #141c26(0.98);
+  LayoutMode: Top;
+  Padding: (Full: 20);
+
+  // Header with title and close button
+  Group {
+    Anchor: (Height: 44);
+    LayoutMode: Left;
+
+    Label #title {
+      Text: "Editing Hologram";
+      FlexWeight: 1;
+      Style: (FontSize: 20, TextColor: #b4c8c9, RenderBold: true, RenderUppercase: true, VerticalAlignment: Center);
+    }
+
+    $C.@CloseButton #closeBtn { }
+  }
+
+  // Separator
+  $C.@ContentSeparator { }
+  Group { Anchor: (Height: 12); }
+
+  // Toolbar - New Line / Remove Line
+  Group {
+    Anchor: (Height: 44);
+    LayoutMode: Left;
+
+    $C.@SecondaryTextButton #addLineBtn {
+      @Text = "+";
+      Anchor: (Width: 40, Height: 40);
+    }
+
+    Group { Anchor: (Width: 10); }
+
+    $C.@SecondaryTextButton #removeLineBtn {
+      @Text = "-";
+      Anchor: (Width: 40, Height: 40);
+    }
+
+    Group { FlexWeight: 1; }
+
+    Label #lineCountLabel {
+      Text: "Lines: 0";
+      Anchor: (Width: 100);
+      Style: (FontSize: 13, TextColor: #6e7da1, VerticalAlignment: Center, HorizontalAlignment: End);
+    }
+  }
+
+  Group { Anchor: (Height: 10); }
+
+  // Lines container with scroll buttons
+  Group {
+    FlexWeight: 1;
+    LayoutMode: Left;
+
+    // Lines area
+    Group {
+      FlexWeight: 1;
+      Background: #0d1218(0.5);
+      LayoutMode: Top;
+      Padding: (Full: 8);
+
+      // Pre-defined line slots (max 20 lines, 6 visible at a time)
+      // Each line has: selection indicator, line number, text field
+
+      Group #line0 { Anchor: (Height: 42); LayoutMode: Left; Padding: (Vertical: 2);
+        Group #line0sel { Anchor: (Width: 4); Background: #3b82f6; }
+        Group { Anchor: (Width: 6); }
+        Label #line0num { Text: "1."; Anchor: (Width: 30); Style: (FontSize: 13, TextColor: #6e7da1, VerticalAlignment: Center); }
+        $C.@TextField #line0text { FlexWeight: 1; Anchor: (Height: 36); PlaceholderText: "Enter line text..."; }
+      }
+
+      Group #line1 { Anchor: (Height: 42); LayoutMode: Left; Padding: (Vertical: 2); Visible: false;
+        Group #line1sel { Anchor: (Width: 4); Background: #2b3542; }
+        Group { Anchor: (Width: 6); }
+        Label #line1num { Text: "2."; Anchor: (Width: 30); Style: (FontSize: 13, TextColor: #6e7da1, VerticalAlignment: Center); }
+        $C.@TextField #line1text { FlexWeight: 1; Anchor: (Height: 36); PlaceholderText: "Enter line text..."; }
+      }
+
+      Group #line2 { Anchor: (Height: 42); LayoutMode: Left; Padding: (Vertical: 2); Visible: false;
+        Group #line2sel { Anchor: (Width: 4); Background: #2b3542; }
+        Group { Anchor: (Width: 6); }
+        Label #line2num { Text: "3."; Anchor: (Width: 30); Style: (FontSize: 13, TextColor: #6e7da1, VerticalAlignment: Center); }
+        $C.@TextField #line2text { FlexWeight: 1; Anchor: (Height: 36); PlaceholderText: "Enter line text..."; }
+      }
+
+      Group #line3 { Anchor: (Height: 42); LayoutMode: Left; Padding: (Vertical: 2); Visible: false;
+        Group #line3sel { Anchor: (Width: 4); Background: #2b3542; }
+        Group { Anchor: (Width: 6); }
+        Label #line3num { Text: "4."; Anchor: (Width: 30); Style: (FontSize: 13, TextColor: #6e7da1, VerticalAlignment: Center); }
+        $C.@TextField #line3text { FlexWeight: 1; Anchor: (Height: 36); PlaceholderText: "Enter line text..."; }
+      }
+
+      Group #line4 { Anchor: (Height: 42); LayoutMode: Left; Padding: (Vertical: 2); Visible: false;
+        Group #line4sel { Anchor: (Width: 4); Background: #2b3542; }
+        Group { Anchor: (Width: 6); }
+        Label #line4num { Text: "5."; Anchor: (Width: 30); Style: (FontSize: 13, TextColor: #6e7da1, VerticalAlignment: Center); }
+        $C.@TextField #line4text { FlexWeight: 1; Anchor: (Height: 36); PlaceholderText: "Enter line text..."; }
+      }
+
+      Group #line5 { Anchor: (Height: 42); LayoutMode: Left; Padding: (Vertical: 2); Visible: false;
+        Group #line5sel { Anchor: (Width: 4); Background: #2b3542; }
+        Group { Anchor: (Width: 6); }
+        Label #line5num { Text: "6."; Anchor: (Width: 30); Style: (FontSize: 13, TextColor: #6e7da1, VerticalAlignment: Center); }
+        $C.@TextField #line5text { FlexWeight: 1; Anchor: (Height: 36); PlaceholderText: "Enter line text..."; }
+      }
+    }
+
+    // Scroll buttons on right side
+    Group { Anchor: (Width: 8); }
+    Group {
+      Anchor: (Width: 50);
+      LayoutMode: Top;
+
+      // Scroll up button
+      $C.@SmallSecondaryTextButton #scrollUpBtn {
+        @Text = "^";
+        Anchor: (Width: 50, Height: 32);
+      }
+
+      Group { FlexWeight: 1; }
+
+      // Page indicator
+      Label #pageLabel {
+        Text: "1/1";
+        Anchor: (Height: 28);
+        Style: (FontSize: 12, TextColor: #96a9be, HorizontalAlignment: Center, VerticalAlignment: Center);
+      }
+
+      Group { FlexWeight: 1; }
+
+      // Scroll down button
+      $C.@SmallSecondaryTextButton #scrollDownBtn {
+        @Text = "v";
+        Anchor: (Width: 50, Height: 32);
+      }
+    }
+  }
+
+  Group { Anchor: (Height: 14); }
+
+  // Footer with action buttons
+  Group {
+    Anchor: (Height: 50);
+    LayoutMode: Center;
+
+    $C.@SecondaryTextButton #cancelBtn {
+      @Text = "Cancel";
+      Anchor: (Width: 140, Height: 44);
+    }
+
+    Group { Anchor: (Width: 20); }
+
+    $C.@TextButton #saveBtn {
+      @Text = "Save";
+      Anchor: (Width: 140, Height: 44);
+    }
+  }
+}

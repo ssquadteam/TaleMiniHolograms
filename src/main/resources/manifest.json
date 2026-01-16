@@ -1,0 +1,12 @@
+{
+    "Group": "SSquadTeam",
+    "Name": "TaleMiniHolograms",
+    "Main": "com.github.ssquadteam.taleminiholograms.TaleMiniHolograms",
+    "Version": "1.0.0",
+    "ServerVersion": "*",
+    "IncludesAssetPack": true,
+    "Description": "A comprehensive holograms plugin with MiniMessage support and UI editor",
+    "Dependencies": {
+        "SSquadTeam:TaleLib": "*"
+    }
+}
