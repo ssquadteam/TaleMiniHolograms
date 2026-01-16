@@ -2,7 +2,7 @@
     "Group": "SSquadTeam",
     "Name": "TaleMiniHolograms",
     "Main": "com.github.ssquadteam.taleminiholograms.TaleMiniHolograms",
-    "Version": "1.0.1",
+    "Version": "1.0.2",
     "ServerVersion": "*",
     "IncludesAssetPack": true,
     "Description": "A comprehensive holograms plugin with MiniMessage support and UI editor",
